@@ -1,0 +1,23 @@
+# www.robotstxt.org/
+# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+
+User-agent: *
+Disallow: /admin
+
+# Development
+Disallow: /
+# Allow: /
+
+# User-agent: Mediapartners-Google
+# Allow: /
+ 
+# User-agent: Adsbot-Google
+# Allow: /
+ 
+# User-agent: Googlebot-Image
+# Allow: /
+ 
+# User-agent: Googlebot-Mobile
+# Allow: /
+ 
+# Sitemap: https://seattlesurfer.com/sitemap.xml
