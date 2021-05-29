@@ -10,7 +10,88 @@
     * { box-sizing: border-box; }
     body { font-family: Helvetica, Tahoma, sans-serif; }
   </style>
-  <link rel="stylesheet" href="./main.css">
+  <style>
+    body {
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.1;
+    }
+
+    .how__title {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .header {
+      display: none;
+    }
+
+    .splash {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .splash__meta {
+      text-align: center;
+    }
+
+    .splash__eyebrow {
+      font-size: 1.5rem;
+      font-weight: 200;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-kerning: auto;
+      transform: scaleY(1.05) scaleX(0.8);
+    }
+
+    .splash__hit {
+      font-size: calc(4rem + 10vw);
+      line-height: 1.1;
+    }
+
+    .splash__cover,
+    .splash__image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .splash__image {
+      background: white center / cover no-repeat;
+      background-image: url('./img/splash-loading.jpg');
+    }
+
+    .splash__cover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .content {
+      padding: 4rem 0;
+    }
+
+    .embed {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .how {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+  </style>
+  <!-- <link rel="stylesheet" href="./main.css"> -->
   <title>Seattle Surfer</title>
 </head>
 <body>
@@ -30,11 +111,11 @@
         <p class="splash__hit">Yes</p>
       </div>
       <div class="splash__cover"></div>
-      <div class="splash__image"></div>
+      <div class="splash__image" id="splash-image"></div>
     </div>
     <div class="content" id="content">
       <div class="how">
-        <h1>Is it possible to surf in Seattle?</h1>
+        <h1 class="how__title">Is it possible to surf in Seattle?</h1>
         <p>Yes, on days with 20kt or more sustained winds, the Puget Sound is usually surfable in one or more locations. During the winter, it is common to be able to surf a few times per month.
       </div>
       <div class="embed">
@@ -42,5 +123,11 @@
       </div>
     </div>
   </main>
+  <script>
+    var splashImage = document.getElementById('splash-image');
+    document.addEventListener('DOMContentLoaded', function() {
+      splashImage.setAttribute('style', 'background-image: url(./img/splash.jpg)');
+    });
+  </script>
 </body>
 </html>

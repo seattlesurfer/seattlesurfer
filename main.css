@@ -1,4 +1,6 @@
-body {
+/* moved everything to inline for now, why not */
+
+/*body {
   line-height: 1.6;
 }
 
@@ -50,7 +52,7 @@ h2 {
 
 .splash__image {
   background: white center / cover no-repeat;
-  background-image: url('./img/splash.png');
+  background-image: url('./img/splash.jp2');
 }
 
 .splash__cover {
@@ -72,4 +74,4 @@ h2 {
   max-width: 650px;
   margin: 0 auto;
   padding: 4rem 0;
-}
+}*/
