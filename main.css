@@ -1,3 +1,16 @@
+body {
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
 .header {
   display: none;
 }
@@ -14,17 +27,16 @@
 .splash__meta {
   text-align: center;
 }
+
 .splash__eyebrow {
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: -0.5px;
 }
 .splash__hit {
   font-size: calc(4rem + 10vw);
+  line-height: 1.1;
 }
-.splash__subtitle {
-
-}
-
 
 .splash__cover,
 .splash__image {
@@ -46,11 +58,18 @@
 }
 
 .content {
-  padding: 4rem;
+  padding: 4rem 0;
 }
 
 .embed {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+.how {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 4rem 0;
 }
