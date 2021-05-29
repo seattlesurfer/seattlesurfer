@@ -10,10 +10,36 @@
     * { box-sizing: border-box; }
     body { font-family: Helvetica, Tahoma, sans-serif; }
   </style>
+  <link rel="stylesheet" href="./main.css">
   <title>Seattle Surfer</title>
 </head>
 <body>
-  <h1>Can you surf in Seattle?</h1>
-  <p>Yes, occasionally you can surf in Seattle!</p>
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="body">
+    <div class="splash" id="splash">
+      <div class="splash__meta">
+        <p class="splash__eyebrow">Can you surf in Seattle?</p>
+        <h1>
+          <p class="splash__hit">Yes</p>
+          <p class="splash__subtitle">you can surf in Seattle</p>
+        </h1>
+      </div>
+      <div class="splash__cover"></div>
+      <div class="splash__image"></div>
+    </div>
+    <div class="content" id="content">
+      <div class="embed">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qWQ4c0u_NBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
