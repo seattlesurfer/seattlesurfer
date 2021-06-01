@@ -2,8 +2,28 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <meta name="bub" content="berg">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Seattle Surfer | A website about surfing in Seattle, Washington</title>
+  <meta name="description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
+  <meta itemprop="description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
+  <link rel="shortcut icon" href="img/fav.ico" type="image/x-icon">
+  <meta itemprop="name" content="Seattle Surfer">
+  <meta itemprop="url" content="http://seattlesurfer.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="http://seattlesurfer.com">
+  <meta name="twitter:title" content="Seattle Surfer">
+  <meta name="twitter:description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
+  <meta name="twitter:image" content="http://seattlesurfer.com/img/splash.jpg">
+  <meta name="twitter:site" content="@daviduffy_">
+  <meta name="twitter:creator" content="@daviduffy_">
+  <meta property="og:title" content="Seattle Surfer">
+  <meta property="og:site_name" content="Seattle Surfer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://seattlesurfer.com">
+  <meta property="og:image" content="http://seattlesurfer.com/img/splash.jpg">
+  <meta property="og:description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
+  <link rel="canonical" href="http://seattlesurfer.com">
   <style>
     /* inline reset */
     a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
@@ -69,6 +89,22 @@
       background-color: rgba(255, 255, 255, 0.7);
     }
 
+    .splash__how {
+      position: absolute;
+      right: 0;
+      bottom: 2rem;
+      left: 0;
+    }
+    .splash__how::after {
+      content: "∨";
+      position: absolute;
+      font-size: 2rem;
+      transform: scaleX(1.5);
+      right: 0;
+      left: 0;
+      top: 0.5rem;
+    }
+
     .content {
       padding: 4rem 1rem;
     }
@@ -99,7 +135,6 @@
 
   </style>
   <!-- <link rel="stylesheet" href="./main.css"> -->
-  <title>Seattle Surfer</title>
 </head>
 <body>
   <header class="header">
@@ -116,6 +151,7 @@
       <div class="splash__meta">
         <p class="splash__eyebrow">Can you surf in Seattle?</p>
         <p class="splash__hit">Yes</p>
+        <p class="splash__how">See how</p>
       </div>
       <div class="splash__cover"></div>
       <div class="splash__image" id="splash-image"></div>
@@ -123,7 +159,8 @@
     <div class="content" id="content">
       <div class="how">
         <h1 class="how__title">Is it possible to surf in Seattle?</h1>
-        <p>Yes, on days with 20kt or more sustained winds, the Puget Sound is usually surfable in one or more locations. During the winter, it is common to be able to surf a few times per month.
+        <p>Yes, on days with 20kt or more sustained winds, the Puget Sound is usually surfable in one or more locations. During the winter, it is common to be able to surf a few times per month.</p>
+
       </div>
       <div class="embed">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/qWQ4c0u_NBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
