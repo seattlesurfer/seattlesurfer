@@ -83,11 +83,11 @@
       font-size: 2.074rem;
       margin-bottom: 0.5rem;
     }
-    h2 {
+    h2, .h2 {
       font-size:  1.728rem;
       margin-bottom: 0.5rem;
     }
-    h3 {
+    h3, .h3 {
       font-size:  1.44rem;
     }
     h4 {
@@ -98,16 +98,15 @@
     }
     @media screen and (min-width: 500px) {
       h1 {
-        font-size: 2.441rem;
-      }
-      h2 {
         font-size: 1.953rem;
       }
-      h3 {
+      h2 {
         font-size: 1.563rem;
       }
-      h4 {
+      h3 {
         font-size: 1.25rem;
+      }
+      h4 {
       }
     }
 
@@ -237,45 +236,44 @@
     }
 
     /* accordion  */
-    .accordion label {
-      position: relative;
-      display: block;
-      cursor: pointer;
-      padding: 0.25rem 0.75rem;
-      border-top: 1px solid #ecf0f1;
-      background-color: #fefefe;
-      transition: background-color 0.12s ease;
-    }
-    .accordion li:last-child label {
-      border-bottom: 1px solid #ecf0f1;
-    }
-    .accordion label:hover, .accordion label:active {
-      background-color: #ecf0f1;
-    }
-    .accordion label::after {
-      content: '+';
-      display: block;
-      color: #34495e;
-      position: absolute;
-      right: 1rem;
-      top: 20%;
-      margin: auto;
-    }
-
     input[name='panel'] {
       display: none;
     }
-    
-    .accordion__content > div {
-      background-color: #fefefe;
-      padding: 0.875rem;
-    }
 
     @media (min-width: 900px) {
+      .accordion label {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        padding: 0.25rem 0.75rem;
+        border-top: 1px solid #ecf0f1;
+        background-color: #fefefe;
+        transition: background-color 0.12s ease;
+      }
+      .accordion li:last-child label {
+        border-bottom: 1px solid #ecf0f1;
+      }
+      .accordion label:hover, .accordion label:active {
+        background-color: #ecf0f1;
+      }
+      .accordion label::after {
+        content: '+';
+        display: block;
+        color: #34495e;
+        position: absolute;
+        right: 1rem;
+        top: 20%;
+        margin: auto;
+      }
       .accordion__content {
         overflow: hidden;
         max-height: 0;
         transition: max-height 0.3s ease-in-out;
+      }
+      
+      .accordion__content > div {
+        background-color: #fefefe;
+        padding: 0.875rem;
       }
 
       input[name='panel']:checked ~ .accordion__content {
@@ -366,10 +364,11 @@
       <section class="container container--steps" id="wind-waves">
         <div class="row row--2-col">
           <div class="col">
-            <h2>Wind waves in Seattle</h2>
+            <h2>How to surf wind waves</h2>
             <p>Wind is responsible for creating almost all waves on Earth<sup><a style="text-decoration:none" href="https://oceanexplorer.noaa.gov/facts/waves.html">1</a></sup>. In the ocean, huge storms spanning hundreds of miles can generate giant swells, but here in Puget Sound we only have a few miles of open water to work with. As a result, we need sustained high winds in order to build enough wind chop to create surfable waves.</p>
           </div>
           <div class="col">
+            <h4 class="h3">You'll need:</h4>
             <ul class="accordion">
               <li>
                 <input type="checkbox" name="panel" id="wind-panel-1">
@@ -423,10 +422,11 @@
       <section class="container container--steps" id="boat-waves">
         <div class="row row--2-col">
           <div class="col">
-            <h2>Ferry and freight ship waves</h2>
+            <h2>How to surf ferry and freighter waves</h2>
             <p>Ferries and large boats like container ships or tankers can create surfable waves, but the size of the boat is less important than the speed the boat is travelling. The many "fast ferry" boats that traverse Puget Sound are significantly smaller than container ships, yet fast ferry waves mimic ocean swell better than any other boats in Puget Sound.</p>
           </div>
           <div class="col">
+            <h4 class="h3">You'll need:</h4>
             <ul class="accordion">
               <li>
                 <input type="checkbox" name="panel" id="ship-panel-1">
