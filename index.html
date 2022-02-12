@@ -6,21 +6,109 @@
   <meta name="bub" content="berg">
   <style>
     /* inline reset */
-    a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+    a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
     * { box-sizing: border-box; }
     body { font-family: Helvetica, Tahoma, sans-serif; }
   </style>
   <style>
+    /* breakpoint-large: 900px; */
+
     body {
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
-      line-height: 1.1;
+    img {
+      max-width:  100%;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 0 0 2.6rem;
+    }
+
+    .container--steps {
+      background-color: rgba(236, 240, 241, 0.4);
+      padding-top:  2.4rem;
+    }
+    @media (min-width: 900px) {
+      .container--steps {
+        min-height: 440px;
+        align-items: center;
+      }
+    }
+
+    .row {
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+
+    .row--narrow {
+      max-width: 650px;
+    }
+
+    @media (min-width: 900px) {
+      .row--2-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: column;
+        grid-gap: 4rem;
+      }
+    }
+
+
+    h1 {
+      font-size: 2.074rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size:  1.728rem;
+      margin-bottom: 0.5rem;
+    }
+    h3 {
+      font-size:  1.44rem;
+    }
+    h4 {
+      font-size:  1.2rem;
+    }
+    p {
+      margin-bottom:  0.5rem;
+    }
+    @media screen and (min-width: 500px) {
+      h1 {
+        font-size: 2.441rem;
+      }
+      h2 {
+        font-size: 1.953rem;
+      }
+      h3 {
+        font-size: 1.563rem;
+      }
+      h4 {
+        font-size: 1.25rem;
+      }
     }
 
     .header {
-      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .header ul {
+      display: flex;
+    }
+
+    .header__link {
+      display: inline-block;
+      text-decoration: none;
+      color: #0e0e0e;
+      padding: 1rem 2rem;
+    }
+
+    .header__link:focus, .header__link:hover, .header__link:active {
+      color: #2c3e50;
     }
 
     .splash {
@@ -69,32 +157,117 @@
       background-color: rgba(255, 255, 255, 0.7);
     }
 
-    .content {
-      padding: 4rem 1rem;
+    .intro {
+      padding-top: 4rem;
+      padding-bottom: 1rem;
     }
 
-    .embed {
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
+    .collage {
+      display: grid;
+      grid-template-rows: repeat(10, 1fr);
+      grid-template-columns: repeat(10, 1fr);
     }
 
-    .how {
-      width: 100%;
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 0 0 4rem;
+    .collage__image--1 {
+      grid-column: 1 / 11;
+      grid-row: 1 / 7;
+      /*max-width: 450px;*/
     }
 
-    .how__title {
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
+    .collage__image--2 {
+      grid-column: 3 / span 7;
+      grid-row: 5 / span 7;
+      max-width: 340px;
     }
 
-    @media screen and (min-width: 500px) {
-      .how__title {
-        font-size: 1.6rem;
+    @media (min-width: 900px) {
+      .intro {
+        padding-bottom:  4rem;
       }
+
+      .intro .col:last-child {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .gallery__track {
+      display: flex;
+      overflow: scroll;
+    }
+
+    .gallery__item {
+      min-width: 238px;
+      padding: 0.5rem;
+    }
+    @media (min-width: 900px) {
+      .gallery__item {
+        min-width: initial;
+      }
+    }
+
+    .gallery__item h3 {
+      font-size: 1rem;
+    }
+    .gallery__item a {
+      color: #0e0e0e;
+      text-decoration: none;
+    }
+
+    /* accordion  */
+    .accordion label {
+      position: relative;
+      display: block;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      border-top: 1px solid #ecf0f1;
+      background-color: #fefefe;
+      transition: background-color 0.12s ease;
+    }
+    .accordion li:last-child label {
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .accordion label:hover, .accordion label:active {
+      background-color: #ecf0f1;
+    }
+    .accordion label::after {
+      content: '+';
+      display: block;
+      color: #34495e;
+      position: absolute;
+      right: 1rem;
+      top: 20%;
+      margin: auto;
+    }
+
+    input[name='panel'] {
+      display: none;
+    }
+    
+    .accordion__content > div {
+      background-color: #fefefe;
+      padding: 0.875rem;
+    }
+
+    @media (min-width: 900px) {
+      .accordion__content {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      input[name='panel']:checked ~ .accordion__content {
+        /* Get this as close to what height you expect */
+        max-height: 14rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      padding: 1rem 0;
     }
 
   </style>
@@ -105,31 +278,178 @@
   <header class="header">
     <nav>
       <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
+        <li>
+          <a class="header__link" href="/">Home</a>
+        </li>
+        <li>
+          <a class="header__link" href="#wind-waves">Wind Waves</a>
+        </li>
+        <li>
+          <a class="header__link" href="#boat-waves">Boat Waves</a>
+        </li>
       </ul>
     </nav>
   </header>
   <main class="body">
     <div class="splash" id="splash">
       <div class="splash__meta">
-        <p class="splash__eyebrow">Can you surf in Seattle?</p>
+        <h1 class="splash__eyebrow">Can you surf in Seattle?</h1>
         <p class="splash__hit">Yes</p>
       </div>
       <div class="splash__cover"></div>
       <div class="splash__image" id="splash-image"></div>
     </div>
     <div class="content" id="content">
-      <div class="how">
-        <h1 class="how__title">Is it possible to surf in Seattle?</h1>
-        <p>Yes, on days with 20kt or more sustained winds, the Puget Sound is usually surfable in one or more locations. During the winter, it is common to be able to surf a few times per month.
-      </div>
-      <div class="embed">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qWQ4c0u_NBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <section class="container intro">
+        <div class="row row--2-col">
+          <div class="col collage">
+            <img class="collage__image collage__image--1" src="img/ferry.jpg" alt="a surfer catches a wave from a ferry at Duwamish Head in West Seattle">
+            <img class="collage__image collage__image--2" src="img/alki-1.jpg" alt="a surfer finishes surfing a wave at alki point">
+          </div>
+          <div class="col">
+            <h2 class="intro__title">Is it possible to surf in Seattle?</h2>
+            <p>Yes, it is totally possible to surf in Seattle! There are two ways: scoring wind waves, and surfing ferry or freighter ship waves. Both  require a little luck and a decent amount of planning.</p>
+          </div>
+        </div>
+      </section>
+      <section class="container gallery">
+        <div class="row">
+          <h2>Discover surfing in Seattle</h2>
+          <ul class="gallery__track">
+            <li class="gallery__item">
+              <a href="https://youtu.be/pIhQVE0SIkc">
+                <img src="https://i.ytimg.com/vi_webp/pIhQVE0SIkc/maxresdefault.webp" alt="">
+                <h3>Bombing surf at Alki Point</h3>
+              </a>
+            </li>
+            <li class="gallery__item">
+              <a href="https://youtu.be/3zW73dUESiY">
+                <img src="https://i.ytimg.com/vi/3zW73dUESiY/maxresdefault.jpg" alt="">
+                <h3>Ferry Surfing, Duwamish Head</h3>
+              </a>
+            </li>
+            <li class="gallery__item">
+              <a href="https://youtu.be/Uvz_0tp0zng">
+                <img src="https://i.ytimg.com/vi/Uvz_0tp0zng/maxresdefault.jpg" alt="">
+                <h3>Bomb Cyclone suf at Alki Point</h3>
+              </a>
+            </li>
+            <li class="gallery__item">
+              <a href="https://youtu.be/qWQ4c0u_NBk">
+                <img src="https://i.ytimg.com/vi/qWQ4c0u_NBk/maxresdefault.jpg" alt="">
+                <h3>Best wave every at Alki Point?</h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="container container--steps" id="wind-waves">
+        <div class="row row--2-col">
+          <div class="col">
+            <h2>Wind waves in Seattle</h2>
+            <p>Wind is responsible for creating almost all waves on Earth<sup><a style="text-decoration:none" href="https://oceanexplorer.noaa.gov/facts/waves.html">1</a></sup>. In the ocean, huge storms spanning hundreds of miles can generate giant swells, but here in Puget Sound we only have a few miles of open water to work with. As a result, we need sustained high winds in order to build enough wind chop to create surfable waves.</p>
+          </div>
+          <div class="col">
+            <ul class="accordion">
+              <li>
+                <input type="checkbox" name="panel" id="wind-panel-1">
+                <label for="wind-panel-1">
+                  <h3>Sustained winds above 25kt</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>Using an app like <a href="https://www.windy.com/47.575/-122.420?47.575,-122.420,16">windy.com</a>, keep an eye on the wind forecast. Any sustained winds above 25kt for 2 or more hours are likely to create surfable conditions in the Puget Sound.</p>
+                    <p>To monitor Puget Sound winds for the Seattle area in almost real-time, take a look at the West Point (<a href="https://www.ndbc.noaa.gov/station_page.php?station=wpow1">WPOW1</a>) weather state at Discovery Park.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" name="panel" id="wind-panel-2">
+                <label for="wind-panel-2">
+                  <h3>Spot selection</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>Using the wind direction as your guide, choose a spot that offers the longest draw of wind across water. When the winds are out of the south-southwest, Alki Point is the place to be. When winds are from the North, Lowman Beach can be a better bet.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" name="panel" id="wind-panel-3">
+                <label for="wind-panel-3">
+                  <h3>Moderate tide</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>Wind storms are more frequent in the winter months, but so are extremely high tides. For surfable waves, a tide between 5 - 10 is preferable. Follow Seattle tides using <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9447130&legacy=1">NOAA's Tides and Currents</a> website.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" name="panel" id="wind-panel-4">
+                <label for="wind-panel-4">
+                  <h3>Patience</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>Even with an ideal forecast, things still may not come together. Conditions change quickly, so it may pay to watch and wait before packing it in!</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="container container--steps" id="boat-waves">
+        <div class="row row--2-col">
+          <div class="col">
+            <h2>Ferry and freight ship waves</h2>
+            <p>Ferries and large boats like container ships or tankers can create surfable waves, but the size of the boat is less important than the speed the boat is travelling. The many "fast ferry" boats that traverse Puget Sound are significantly smaller than container ships, yet fast ferry waves mimic ocean swell better than any other boats in Puget Sound.</p>
+          </div>
+          <div class="col">
+            <ul class="accordion">
+              <li>
+                <input type="checkbox" name="panel" id="ship-panel-1">
+                <label for="ship-panel-1">
+                  <h3>Boat-tracking app</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>What would it be like to predict within a couple of minutes when a set wave would come in? With boat-tracking apps, that is completely normal! Real-time vessel telemetry is available from apps like <a href="https://www.marinetraffic.com/en/ais/home/centerx:-122.463/centery:47.611/zoom:12">marinetraffic.com</a>, so you can time your session with to coincide with the waves you want to catch!</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" name="panel" id="ship-panel-2">
+                <label for="ship-panel-2">
+                  <h3>Spot Selection</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>The premiere location for tanker/container ship surfing is <a href="https://www.google.com/maps/place/Ballard,+Seattle,+WA/@47.6739033,-122.4144155,846m/data=!3m1!1e3!4m5!3m4!1s0x549015d57a5da881:0xd07680ac0ad3f49c!8m2!3d47.6792172!4d-122.3860312">Shilshole Bay in Ballard</a>. The best spot for ferry wave surfing is <a href="https://www.google.com/maps/place/Duwamish+Head/@47.5955927,-122.3956132,3389m/data=!3m2!1e3!4b1!4m5!3m4!1s0x549040756bc7501b:0xfc2e5c89bb1f04d0!8m2!3d47.5955791!4d-122.386837">Duwamish head in West Seattle</a>.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" name="panel" id="ship-panel-3">
+                <label for="ship-panel-3">
+                  <h3>Tide Timing</h3>
+                </label>
+                <div class="accordion__content">
+                  <div>
+                    <p>These waves only break when the tide is very low. Look for a 4 or under on <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9447130&legacy=1">NOAA's Tides and Currents</a> website.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
+  <footer>
+    <span>&copy; nobody lol<span>
+  </footer>
   <script>
     var splashImage = document.getElementById('splash-image');
     document.addEventListener('DOMContentLoaded', function() {
