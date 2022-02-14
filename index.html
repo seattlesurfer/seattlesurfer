@@ -328,8 +328,22 @@
       }
     }
 
-    .invite--loading {
-      
+    .invite {
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .invite--loading::after {
+      content: '...';
+      display: block;
+      font-size: 2.6rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      line-height: 0.3;
     }
 
     .invite__cta {
@@ -541,6 +555,12 @@
                 $cta.innerHTML = '';
                 $cta.classList.add('invite--loading');
                 setTimeout(() => {
+                  $cta.classList.remove('invite--loading');
+                  const host = 'https://discord.gg/';
+                  const hash = '7UNtFSmu8y';
+                  const url = `${host}${hash}`;
+                  $invite.setAttribute('class', 'invite__actual');
+                  $invite.innerHTML = url;
                   $cta.appendChild($invite);
                 }, 400);
               }
@@ -548,10 +568,6 @@
               $button.setAttribute('class', 'invite__cta');
               $button.addEventListener('click', handleClick);
               $cta.appendChild($button);
-              const host = 'https://discord.gg/';
-              const hash = '7UNtFSmu8y';
-              const url = `${host}${hash}`;
-              $invite.setAttribute('class', 'invite__actual');
             </script>
  <!--            <div id='nove_signup'></div>
             <script src='https://nove.io/v4/nove.js'></script>
