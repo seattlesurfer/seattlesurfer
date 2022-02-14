@@ -5,6 +5,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Seattle Surfer | A website about surfing in Seattle, Washington</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Serif:wght@300;600&display=swap" rel="stylesheet">
   <meta name="description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
   <meta itemprop="description" content="Seattle Surfer | A website about surfing in Seattle, Washington">
   <meta itemprop="name" content="Seattle Surfer">
@@ -32,7 +35,12 @@
     /* inline reset */
     a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
     * { box-sizing: border-box; }
-    body { font-family: Helvetica, Tahoma, sans-serif; }
+    html {
+      --font-family-serif: 'Roboto Serif', Times, serif;
+      --font-family-sans: 'Open Sans',Helvetica, Tahoma, sans-serif;
+      --body-copy: #0e0e0e;
+    }
+    body { font-family: var(--font-family-sans); color: var(--body-copy) }
   </style>
   <style>
     /* breakpoint-large: 900px; */
@@ -50,6 +58,16 @@
       justify-content: center;
       width: 100%;
       padding: 0 0 2.6rem;
+    }
+
+    .container--signup {
+      padding-top: 4rem;
+    }
+
+    .container--signup .heading {
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .container--steps {
@@ -82,8 +100,12 @@
       }
     }
 
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+      font-family: var(--font-family-serif);
+      font-weight: 600;
+    }
 
-    h1 {
+    h1, .h1 {
       font-size: 2.074rem;
       margin-bottom: 0.5rem;
     }
@@ -94,7 +116,7 @@
     h3, .h3 {
       font-size:  1.44rem;
     }
-    h4 {
+    h4, .h4 {
       font-size:  1.2rem;
     }
     p {
@@ -148,6 +170,7 @@
     }
 
     .splash__eyebrow {
+      font-family: var(--font-family-sans);
       font-size: 1.5rem;
       font-weight: 200;
       text-transform: uppercase;
@@ -157,8 +180,10 @@
     }
 
     .splash__hit {
-      font-size: calc(4rem + 10vw);
+      font-size: calc(3rem + 10vw);
       line-height: 1.1;
+      font-family: var(--font-family-serif);
+      font-weight: 600;
     }
 
     .splash__cover,
@@ -255,16 +280,21 @@
       display: none;
     }
 
+    .accordion label h3 {
+      font-family: var(--font-family-sans);
+    }
+
     @media (min-width: 900px) {
       .accordion label {
         position: relative;
         display: block;
         cursor: pointer;
-        padding: 0.25rem 0.75rem;
+        padding: 0.5rem 1rem;
         border-top: 1px solid #ecf0f1;
         background-color: #fefefe;
         transition: background-color 0.12s ease;
       }
+
       .accordion li:last-child label {
         border-bottom: 1px solid #ecf0f1;
       }
@@ -276,8 +306,9 @@
         display: block;
         color: #34495e;
         position: absolute;
+        font-size: 1.5rem;
         right: 1rem;
-        top: 20%;
+        top: 8%;
         margin: auto;
       }
       .accordion__content {
@@ -295,6 +326,20 @@
         /* Get this as close to what height you expect */
         max-height: 14rem;
       }
+    }
+
+    .invite--loading {
+      
+    }
+
+    .invite__cta {
+      border: 2px solid #3498DB;
+      border-radius: 4px;
+      background: 0;
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      color: #2980B9;
     }
 
     footer {
@@ -477,6 +522,60 @@
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+      <section class="container container--signup" id="discord">
+        <div class="row">
+          <div class="col">
+            <div class="heading">
+              <h2>Want to get in on the action?</h2>
+              <p>Do you want to share tips, post-session beta, and general stoke with other surfers in Seattle? Join us on our Discord!</p>
+              <div id="cta" class="invite"></div>
+            </div>
+            <script>
+              const $cta = document.getElementById('cta');
+              const $button = document.createElement('button');
+              const $invite = document.createElement('div');
+              const handleClick = () => {
+                $cta.innerHTML = '';
+                $cta.classList.add('invite--loading');
+                setTimeout(() => {
+                  $cta.appendChild($invite);
+                }, 400);
+              }
+              $button.innerHTML = 'Get the invite';
+              $button.setAttribute('class', 'invite__cta');
+              $button.addEventListener('click', handleClick);
+              $cta.appendChild($button);
+              const host = 'https://discord.gg/';
+              const hash = '7UNtFSmu8y';
+              const url = `${host}${hash}`;
+              $invite.setAttribute('class', 'invite__actual');
+            </script>
+ <!--            <div id='nove_signup'></div>
+            <script src='https://nove.io/v4/nove.js'></script>
+            <script>
+              const updatedConfig = {
+                // no default config at the moment
+                acceptedOtherProps: [
+                  'signupSuccessHeading',
+                  'signupSuccessMessage',
+                  'signupSuccessButton'
+                ],
+              };
+              Lumin.default.config(updatedConfig);
+              var Instance = Lumin.default.widgets.signUp.new();
+              Instance.render({
+                userID: 'kt8B47UKNcPheFaeiJ5SfGE2c5q1',
+                formID: '8b9b75fa-8280-479c-bbde-a507e32fbf62',
+                signupSuccessHeading: 'Access Granted!',
+                signupSuccessMessage: 'The Seattle Surfing discord server is here, copy/paste this link into your browser and join us!\n\n\nhttps://discord.gg/7UNtFSmu8y',
+                signupSuccessButton: 'Sick!'
+              });
+
+              'https://discord.gg/b6fzpnfN'
+            </script> -->
           </div>
         </div>
       </section>
