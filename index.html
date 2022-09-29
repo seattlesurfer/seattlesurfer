@@ -217,15 +217,17 @@
     }
 
     .collage__image--1 {
-      grid-column: 1 / 11;
+      grid-column: 1 / 10;
       grid-row: 1 / 7;
-      /*max-width: 450px;*/
+      transform: rotate(-2deg);
+      max-width: 440px;
     }
 
     .collage__image--2 {
       grid-column: 3 / span 7;
-      grid-row: 5 / span 7;
-      max-width: 340px;
+      grid-row: 6 / span 5;
+      transform:  rotate(3deg);
+      max-width: 370px;
     }
 
     @media (min-width: 900px) {
@@ -395,8 +397,13 @@
       <section class="container intro">
         <div class="row row--2-col">
           <div class="col collage">
-            <img class="collage__image collage__image--1" src="img/ferry.jpg" alt="a surfer catches a wave from a ferry at Duwamish Head in West Seattle">
-            <img class="collage__image collage__image--2" src="img/alki-1.jpg" alt="a surfer finishes surfing a wave at alki point">
+            <img class="collage__image collage__image--2" src="img/ferry.min.jpg" alt="a surfer catches a wave from a ferry at Duwamish Head in West Seattle">
+            <video class="collage__image collage__image--1 video" autoplay="true" muted="true" loop="true">
+              <source src="img/seattlesurfer_alki_promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+              <img src="img/video-fallback.jpg">
+            </video>
+            
+            <!-- <img class="collage__image collage__image--2" src="img/alki-1.jpg" alt="a surfer finishes surfing a wave at alki point"> -->
           </div>
           <div class="col">
             <h2 class="intro__title">Is it possible to surf in Seattle?</h2>
@@ -429,7 +436,7 @@
             <li class="gallery__item">
               <a href="https://youtu.be/qWQ4c0u_NBk">
                 <img src="https://i.ytimg.com/vi/qWQ4c0u_NBk/maxresdefault.jpg" alt="">
-                <h3>Best wave every at Alki Point?</h3>
+                <h3>Best wave ever at Alki Point?</h3>
               </a>
             </li>
           </ul>
@@ -452,7 +459,7 @@
                 <div class="accordion__content">
                   <div>
                     <p>Using an app like <a href="https://www.windy.com/47.575/-122.420?47.575,-122.420,16">windy.com</a>, keep an eye on the wind forecast. Any sustained winds above 25kt for 2 or more hours are likely to create surfable conditions in the Puget Sound.</p>
-                    <p>To monitor Puget Sound winds for the Seattle area in almost real-time, take a look at the West Point (<a href="https://www.ndbc.noaa.gov/station_page.php?station=wpow1">WPOW1</a>) weather state at Discovery Park.</p>
+                    <p>To monitor Puget Sound winds for the Seattle area in almost real-time, take a look at the West Point (<a href="https://www.ndbc.noaa.gov/station_page.php?station=wpow1">WPOW1</a>) weather station at Discovery Park.</p>
                   </div>
                 </div>
               </li>
